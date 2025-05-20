@@ -2,6 +2,7 @@ import {motion} from "motion/react";
 
 export default function Modal() {
   return (
+
     <motion.div
       className={'modal neumorphism'}
       initial={{scale: 0}}

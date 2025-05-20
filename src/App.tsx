@@ -2,14 +2,18 @@ import {useState} from 'react'
 import './App.css'
 import Modal from "./components/Modal/Modal.tsx";
 import {Button} from "./components/Button/Button.tsx";
-import {AnimatePresence} from 'motion/react';
+import {AnimatePresence, motion} from 'motion/react';
+import List from "./components/List/List.tsx";
 
 function App() {
-  const [isModal, setIsModal] = useState(true)
+  const [isModal, setIsModal] = useState(false)
 
   return (
-    <>
-      <div className={'block neumorphismAlt'}>
+    <AnimatePresence>
+      <motion.div
+        className={'block neumorphismAlt'}
+        transition={{duration: .3}}
+      >
         <Button
           title={`${!isModal ? 'Open' : 'Close'} Modal`}
           onClick={() => setIsModal(prevState => !prevState)
@@ -19,10 +23,11 @@ function App() {
         <AnimatePresence>
           {isModal && <Modal/>}
         </AnimatePresence>
-      </div>
+      </motion.div>
 
 
-    </>
+      <List/>
+    </AnimatePresence>
   )
 }
 

@@ -20,6 +20,20 @@
   text-align: center;
 }
 
+ul, li {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+button {
+  font-family: inherit;
+  padding: 1rem;
+  font-size: 18px;
+  border-radius: 2rem;
+  cursor: pointer;
+}
+
 .neumorphism {
   color: #090909;
   background: #e8e8e8;
@@ -32,27 +46,34 @@
   box-shadow: inset 2px 2px 4px #bdbdbd, inset -2px -2px 4px #ffffff;
 }
 
-button {
-  font-family: inherit;
-  padding: 1rem;
-  font-size: 18px;
-  border-radius: 2rem;
-  cursor: pointer;
-}
-
-.block {
+.block, .innerBlock {
   width: 80%;
   padding: 3rem;
   display: inline-flex;
   flex-direction: column;
   gap: 2rem;
   border-radius: 2rem;
+  margin-bottom: 2rem;
+}
+
+.innerBlock {
+  padding: 0;
+  width: 100%;
 }
 
 .modal {
   font-family: inherit;
   font-size: 1rem;
   padding: 3rem;
+  display: inline-block;
+  border-radius: 2rem;
+}
+
+
+.listElement {
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 1rem;
   display: inline-block;
   border-radius: 2rem;
 }

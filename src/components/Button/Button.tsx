@@ -2,7 +2,7 @@ import {motion} from "motion/react";
 
 export function Button({title, onClick}: {
   title: string,
-  onClick: () => void
+  onClick?: () => void
 }) {
   return (
       <motion.button

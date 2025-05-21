@@ -1,23 +1,23 @@
-import Task from "./Task";
-import type { FC } from "react";
-
-interface TaskType {
-  id: string;
-  text: string;
-}
+import {AnimatePresence, Reorder} from "motion/react";
+import Task, {type TaskType} from "./Task";
+import type {FC} from "react";
 
 interface TaskListProps {
   tasks: TaskType[];
+  setTasks: (arr: TaskType[]) => void;
   onDelete: (id: string) => void;
 }
 
-const TaskList: FC<TaskListProps> = ({ tasks = [], onDelete }) => {
+const TaskList: FC<TaskListProps> = ({tasks = [], setTasks, onDelete}) => {
+
   return (
-    <div className="flex flex-col gap-3 w-full">
-      {tasks.map((task) => (
-        <Task key={task.id} task={task} onDelete={onDelete} />
-      ))}
-    </div>
+    <Reorder.Group axis="y" values={tasks} onReorder={setTasks} className="flex flex-col gap-3 w-full">
+      <AnimatePresence mode="popLayout">
+        {tasks.map((task) => (
+          <Task key={task.id} task={task} onDelete={onDelete} />
+        ))}
+      </AnimatePresence>
+    </Reorder.Group>
   );
 };
 
